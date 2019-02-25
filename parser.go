@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"io/ioutil"
+	"os"
 	"path/filepath"
 )
 
@@ -21,6 +22,30 @@ func ParseSuite(file string) (*JUnitTestSuite, error) {
 		return nil, err
 	}
 	return suite, nil
+}
+
+func ParseSuitesRecursive(dir string) ([]JUnitTestSuite, error) {
+	var files []string
+	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if filepath.Ext(path) == ".xml" {
+			files = append(files, path)
+		}
+		return nil
+	})
+	var suites []JUnitTestSuite
+	if err != nil {
+		return suites, err
+	}
+	for _, path := range files {
+		s, err := ParseSuite(path)
+		if err == nil {
+			suites = append(suites, *s)
+		}
+	}
+	return suites, nil
 }
 
 func ParseSuites(dir string) ([]JUnitTestSuite, error) {
