@@ -2,6 +2,13 @@ package junitxml
 
 import "encoding/xml"
 
+type JUnitTestSuiteList struct {
+	XMLName   xml.Name         `xml:"testsuites"`
+	Tests     int              `xml:"tests,attr"`
+	Failures  int              `xml:"failures,attr"`
+	TestSuite []JUnitTestSuite `xml:"testsuite"`
+}
+
 type JUnitTestSuite struct {
 	XMLName    xml.Name        `xml:"testsuite"`
 	Tests      int             `xml:"tests,attr"`

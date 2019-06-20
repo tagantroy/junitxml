@@ -12,3 +12,6 @@
 *.out
 
 .DS_Store
+
+# IDEA generated files
+.idea/

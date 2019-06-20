@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="20" failures="1">
+    <testsuite name="AppleUITestTarget" tests="20" failures="1" time="265.9437860250473">
+        <testcase classname="AppleUITests" name="testCase1()" time="55.92991101741791">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase2()" time="37.91360104084015">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase3()" time="24.14173197746277">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase4()" time="28.050613045692444">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase5()" time="32.55659997463226">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase6()" time="31.868205904960632">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase7()" time="23.864935994148254">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase8()" time="34.98109495639801">
+            <failure message="XCTAssertTrue failed -  (/Users/runner/mobile/Apple/AppleUITestTarget/AppleUITests/AppleUITests.swift:21)">
+            </failure>
+            <failure message="No matches found for first match sequence (
+    &quot;&lt;XCTElementFilteringTransformer: 0x0000021c69cc 'Find: Descendants matching type StaticText'&gt;&quot;,
+    &quot;&lt;XCTElementFilteringTransformer: 0x0000021c69ac 'Find: Elements matching predicate '\&quot;accessibility_identifier=Apple\&quot; IN identifiers''&gt;&quot;
+) from input Application, pid: 000001, label: 'Apple' (/Users/runner/mobile/Apple/AppleUITestTarget/AppleUITests/AppleUITests.swift:21)">
+            </failure>
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase9()" time="51.527580976486206">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase10()" time="41.430100083351135">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase11()" time="38.993813037872314">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase12()" time="32.51821196079254">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase13()" time="39.263105034828186">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase14()" time="31.368852972984314">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase15()" time="28.327880024909973">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase16()" time="32.861647963523865">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase17()" time="41.38855695724487">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase18()" time="32.961236000061035">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase19()" time="21.35788094997406">
+        </testcase>
+        <testcase classname="AppleUITests" name="testCase20()" time="21.74015200138092">
+        </testcase>
+    </testsuite>
+</testsuites>
