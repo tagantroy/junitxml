@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 )
 
-func ParseSuite(file string) (*JUnitTestSuite, error) {
+func ParseSuite(file string) (*JUnitTestSuiteList, error) {
 	if filepath.Ext(file) != ".xml" {
 		return nil, errors.New("wrong file extension")
 	}
@@ -16,15 +16,15 @@ func ParseSuite(file string) (*JUnitTestSuite, error) {
 	if err != nil {
 		return nil, err
 	}
-	suite := &JUnitTestSuite{}
-	err = xml.Unmarshal(bytes, &suite)
+	suites := &JUnitTestSuiteList{}
+	err = xml.Unmarshal(bytes, &suites)
 	if err != nil {
 		return nil, err
 	}
-	return suite, nil
+	return suites, nil
 }
 
-func ParseSuitesRecursive(dir string) ([]JUnitTestSuite, error) {
+func ParseSuitesRecursive(dir string) ([]JUnitTestSuiteList, error) {
 	var files []string
 	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -35,7 +35,7 @@ func ParseSuitesRecursive(dir string) ([]JUnitTestSuite, error) {
 		}
 		return nil
 	})
-	var suites []JUnitTestSuite
+	var suites []JUnitTestSuiteList
 	if err != nil {
 		return suites, err
 	}
@@ -48,12 +48,12 @@ func ParseSuitesRecursive(dir string) ([]JUnitTestSuite, error) {
 	return suites, nil
 }
 
-func ParseSuites(dir string) ([]JUnitTestSuite, error) {
+func ParseSuites(dir string) ([]JUnitTestSuiteList, error) {
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
 		return nil, err
 	}
-	var suites []JUnitTestSuite
+	var suites []JUnitTestSuiteList
 	for _, file := range files {
 		suite, err := ParseSuite(dir + file.Name())
 		if err == nil {
